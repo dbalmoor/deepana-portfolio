@@ -3,6 +3,7 @@ import SectionTitle from "@/components/layout/SectionTitle";
 import { projects } from "@/constants/projects";
 import { FiExternalLink } from "react-icons/fi";
 import { FaGithub } from "react-icons/fa";
+import Image from "next/image";
 
 const Projects = () => {
   return (
@@ -16,12 +17,24 @@ const Projects = () => {
           title="Backend & Full-Stack Engineering Projects"
         />
 
-        <div className="grid gap-8 lg:grid-cols-2">
+        <div className="grid gap-8">
           {projects.map((project, index) => (
             <div
               key={index}
               className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 transition-all duration-300 hover:border-purple-500/20 hover:bg-white/[0.04]"
             >
+
+              {project.image && (
+                <div className="mb-6 overflow-hidden rounded-2xl border border-white/10">
+                  <Image
+                    src={project.image}
+                    alt={project.title}
+                    width={1200}
+                    height={700}
+                    className="h-auto w-full transition duration-500 hover:scale-105"
+                  />
+                </div>
+              )}
               {/* Header */}
               <div className="flex items-start justify-between gap-4">
                 <h3 className="text-2xl font-semibold leading-tight">

@@ -8,6 +8,7 @@ import Experience from "@/sections/experience/Experience";
 import Projects from "@/sections/projects/Projects";
 import Contact from "@/sections/contact/Contact";
 import SystemDesign from "@/sections/system-design/SystemDesign";
+import Image from "next/image";
 
 export default function Home() {
   return (

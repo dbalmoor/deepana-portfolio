@@ -1,30 +1,34 @@
 export const projects = [
   {
-    title: "Distributed Payment Processing Platform",
-    description:
-      "Production-style distributed backend system built using Spring Boot microservices with asynchronous messaging, JWT authentication, Redis caching, Docker deployment, and scalable API architecture.",
+  title: "Distributed Order Management System",
+  image: "/projects/distributed-order-system.png",
 
-    technologies: [
-      "Spring Boot",
-      "Microservices",
-      "JWT",
-      "Kafka",
-      "Redis",
-      "PostgreSQL",
-      "Docker",
-      "Next.js",
-    ],
+  description:
+    "Built a distributed e-commerce order processing platform using Spring Boot microservices, Apache Kafka, PostgreSQL, and the Saga Orchestration pattern. Implemented asynchronous event-driven communication between Order, Inventory, Payment, and Saga Orchestrator services. Designed compensation workflows for distributed transactions, including inventory release and order cancellation during payment failures. Added DLQ handling, idempotency protection, distributed tracing with MDC, and Kafka-based command/reply messaging for reliable processing.",
 
-    github: "#",
-    live: "#",
+  technologies: [
+    "Java",
+    "Spring Boot",
+    "Microservices",
+    "Apache Kafka",
+    "PostgreSQL",
+    "Docker",
+    "Saga Pattern",
+    "Distributed Systems"
+  ],
 
-    highlights: [
-      "Implemented asynchronous event-driven workflows",
-      "Designed scalable microservices architecture",
-      "Integrated Redis caching for performance optimization",
-      "Containerized services using Docker",
-    ],
-  },
+  github: "https://github.com/dbalmoor/distributed-order-system",
+  live: "#",
+
+  highlights: [
+    "Implemented Saga Orchestration for distributed transactions",
+    "Built event-driven communication using Apache Kafka",
+    "Added compensation workflows for failure recovery",
+    "Implemented Dead Letter Queue (DLQ) processing",
+    "Designed idempotent consumers to prevent duplicate processing",
+    "Added distributed tracing using MDC and correlation IDs"
+  ]
+},
 
   {
     title: "Enterprise Integration Services",
