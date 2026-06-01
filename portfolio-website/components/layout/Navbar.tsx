@@ -10,7 +10,16 @@ const Navbar = () => {
           <a href="#about">About</a>
           <a href="#experience">Experience</a>
           <a href="#projects">Projects</a>
+          <a href="#system-design">System Design</a>
           <a href="#contact">Contact</a>
+          <a
+            href="/resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-sm text-purple-300 transition hover:bg-purple-500/20"
+          >
+            Resume
+          </a>
         </nav>
       </Container>
     </header>

@@ -23,7 +23,7 @@ export const experiences = [
     description: [
       "Developed and maintained enterprise backend and integration services using TIBCO BWCE and Flogo within a microservices-based architecture.",
       
-      "Implemented JMS/EMS-based asynchronous messaging to enable reliable event-driven communication between distributed services.",
+      "Implemented JMS/EMS-based asynchronous messaging supporting high-volume communication between distributed telecom services.",
       
       "Designed and optimized PostgreSQL and Oracle database integrations including CRUD operations and transactional workflows.",
       
