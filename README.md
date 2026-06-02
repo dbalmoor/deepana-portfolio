@@ -174,7 +174,7 @@ This portfolio is deployed using Vercel.
 
 * LinkedIn: https://www.linkedin.com/in/deepanabalmoor
 * GitHub: https://github.com/dbalmoor
-* Email: [your-email@example.com](mailto:deepanabalmoor7@gmail.com)
+* Email: [deepanabalmoor7@gmail.com](mailto:deepanabalmoor7@gmail.com)
 
 ---
 
