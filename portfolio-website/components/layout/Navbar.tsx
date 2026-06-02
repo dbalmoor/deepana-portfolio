@@ -11,7 +11,7 @@ const Navbar = () => {
     <header className="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-black/30 backdrop-blur-md">
       <Container className="py-4">
         <div className="flex items-center justify-between">
-          <h1 className="text-xl font-semibold">Deepana</h1>
+          <h1 className="text-xl font-semibold">Deepana Balmoor</h1>
 
           {/* Desktop Navigation */}
           <nav className="hidden items-center gap-6 text-sm text-neutral-300 md:flex">
@@ -19,7 +19,6 @@ const Navbar = () => {
             <a href="#skills">Skills</a>
             <a href="#experience">Experience</a>
             <a href="#projects">Projects</a>
-            <a href="#system-design">System Design</a>
             <a href="#contact">Contact</a>
 
             <a
@@ -58,10 +57,6 @@ const Navbar = () => {
 
             <a href="#projects" onClick={() => setIsOpen(false)}>
               Projects
-            </a>
-
-            <a href="#system-design" onClick={() => setIsOpen(false)}>
-              System Design
             </a>
 
             <a href="#contact" onClick={() => setIsOpen(false)}>

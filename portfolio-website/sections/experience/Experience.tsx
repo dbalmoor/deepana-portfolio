@@ -1,6 +1,7 @@
 import Container from "@/components/layout/Container";
 import SectionTitle from "@/components/layout/SectionTitle";
 import { experiences } from "@/constants/experience";
+import FadeIn from "@/components/common/FadeIn";
 
 const Experience = () => {
   return (
@@ -16,9 +17,9 @@ const Experience = () => {
 
         <div className="space-y-12">
           {experiences.map((experience, index) => (
+          <FadeIn key={index}>
             <div
-              key={index}
-              className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 md:p-10 transition-all duration-300 hover:border-purple-500/20 hover:bg-white/[0.04]"
+              className="rounded-3xl border border-white/10 bg-white/[0.02] p-8 md:p-10 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/20 hover:bg-white/[0.04]"
             >
               {/* Top Section */}
               <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
@@ -73,6 +74,7 @@ const Experience = () => {
                 </div>
               )}
             </div>
+            </FadeIn>
           ))}
         </div>
       </Container>

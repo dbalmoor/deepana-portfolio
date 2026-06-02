@@ -1,4 +1,5 @@
 import Container from "@/components/layout/Container";
+import FadeIn from "@/components/common/FadeIn";
 
 const Hero = () => {
   return (
@@ -6,6 +7,7 @@ const Hero = () => {
       <div className="absolute top-40 right-0 h-72 w-72 bg-purple-500/20 blur-[120px]" />
 
       <Container>
+        <FadeIn>
         <div className="space-y-6">
           <p className="text-purple-400 uppercase tracking-[0.3em] text-sm">
             Associate Software Engineer • Tech Mahindra
@@ -25,7 +27,7 @@ const Hero = () => {
         <div className="flex flex-wrap gap-4 pt-4">
           <a
             href="#projects"
-            className="rounded-xl bg-purple-600 px-6 py-3 font-medium text-white transition hover:bg-purple-700"
+            className="rounded-xl bg-purple-600 px-6 py-3 font-medium text-white transition-all duration-300 hover:scale-105 hover:bg-purple-500"
           >
             View Projects
           </a>
@@ -34,27 +36,53 @@ const Hero = () => {
             href="/resume.pdf"
             target="_blank"
             rel="noopener noreferrer"
-            className="rounded-xl border border-white/20 px-6 py-3 font-medium transition hover:bg-white/5"
+            className="rounded-xl border border-white/20 px-6 py-3 font-medium transition-all duration-300 hover:scale-105 hover:bg-white/5"
           >
             Download Resume
           </a>
         </div>
-        <div className="flex flex-wrap gap-10 pt-10">
-          <div>
-            <p className="text-3xl font-bold">1+</p>
-            <p className="text-neutral-500">Years Experience</p>
+        <div className="grid gap-4 pt-10 md:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30 hover:bg-white/[0.04]">
+            <p className="text-2xl mb-2">🏢</p>
+            <h3 className="font-semibold">
+              Enterprise Telecom Systems
+            </h3>
+            <p className="mt-2 text-sm text-neutral-500">
+              Real-world enterprise integrations, deployments, and production support.
+            </p>
           </div>
 
-          <div>
-            <p className="text-3xl font-bold">3+</p>
-            <p className="text-neutral-500">Major Projects</p>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition hover:border-purple-500/30">
+            <p className="text-2xl mb-2">🌏</p>
+            <h3 className="font-semibold">
+              International Onsite Experience
+            </h3>
+            <p className="mt-2 text-sm text-neutral-500">
+              Supported pre-production rollout activities in Jakarta, Indonesia.
+            </p>
           </div>
 
-          <div>
-            <p className="text-3xl font-bold">1</p>
-            <p className="text-neutral-500">International Onsite</p>
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition hover:border-purple-500/30">
+            <p className="text-2xl mb-2">⚡</p>
+            <h3 className="font-semibold">
+              Kafka & Saga Architecture
+            </h3>
+            <p className="mt-2 text-sm text-neutral-500">
+              Designed event-driven workflows, compensation logic, and failure recovery.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-white/10 bg-white/[0.02] p-5 transition hover:border-purple-500/30">
+            <p className="text-2xl mb-2">🚀</p>
+            <h3 className="font-semibold">
+              Docker & OpenShift
+            </h3>
+            <p className="mt-2 text-sm text-neutral-500">
+              Containerized services and supported deployments on Red Hat OpenShift.
+            </p>
           </div>
         </div>
+        </FadeIn>
       </Container>
       
     </section>
