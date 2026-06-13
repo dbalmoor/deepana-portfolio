@@ -22,7 +22,7 @@ const Navbar = () => {
             <a href="#contact">Contact</a>
 
             <a
-              href="/resume.pdf"
+              href="./Deepana_Balmoor_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="rounded-full bg-purple-600 px-4 py-2 text-white transition-all duration-300 hover:bg-purple-500 hover:shadow-lg hover:shadow-purple-500/40 active:scale-95"
@@ -64,7 +64,7 @@ const Navbar = () => {
             </a>
 
             <a
-              href="/resume.pdf"
+              href="./Deepana_Balmoor_Resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="w-fit rounded-full border border-purple-500/30 bg-purple-500/10 px-4 py-2 text-purple-300"

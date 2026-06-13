@@ -7,8 +7,25 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Deepana Portfolio",
-  description: "Backend Engineer Portfolio",
+  metadataBase: new URL("https://deepana-portfolio.vercel.app"),
+
+  title: "Deepana Balmoor | Java Backend Engineer",
+
+  description:
+    "Backend Engineer specializing in Distributed Systems, Spring Boot, Kafka, Docker, and Enterprise Integrations.",
+
+  icons: {
+    icon: "/icons/project-icon.jpg",
+  },
+
+  openGraph: {
+    title: "Deepana Balmoor | Java Backend Engineer",
+
+    description:
+      "Backend Engineer specializing in Distributed Systems and Enterprise Integrations.",
+
+    images: ["/images/deepana.jpg"],
+  },
 };
 
 export default function RootLayout({
