@@ -10,29 +10,31 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://deepana-portfolio.vercel.app"),
 
   title: {
-    default: "Deepana Balmoor | Java Backend Engineer",
+    default: "Deepana Balmoor | Software Engineer | Java Backend | Distributed Systems",
     template: "%s | Deepana Balmoor",
   },
 
   description:
-    "Java Backend Engineer specializing in Distributed Systems, Spring Boot, Kafka, Docker, OpenShift, and Enterprise Integrations.",
+    "Software Engineer specializing in Java backend systems, distributed systems, enterprise integrations, OpenShift deployments, migration support, and telecom platform engineering.",
 
   keywords: [
     "Deepana Balmoor",
-    "Java Backend Engineer",
     "Software Engineer",
+    "Java Backend Engineer",
+    "Distributed Systems",
     "Spring Boot",
     "Microservices",
     "Apache Kafka",
-    "Distributed Systems",
     "Docker",
     "OpenShift",
     "PostgreSQL",
     "REST APIs",
     "Backend Developer",
-    "Java Developer",
     "System Design",
     "Enterprise Integration",
+    "IOH",
+    "Telecom",
+    "Migration Support",
   ],
 
   authors: [
@@ -62,10 +64,10 @@ export const metadata: Metadata = {
     type: "website",
     url: "https://deepana-portfolio.vercel.app",
 
-    title: "Deepana Balmoor | Java Backend Engineer",
+    title: "Deepana Balmoor | Software Engineer | Java Backend | Distributed Systems",
 
     description:
-      "Java Backend Engineer specializing in Distributed Systems, Spring Boot, Kafka, Docker, OpenShift, and Enterprise Integrations.",
+      "Software Engineer with enterprise telecom systems experience, backend integrations, migration support, distributed messaging, and OpenShift-based deployments.",
 
     siteName: "Deepana Portfolio",
 
@@ -82,10 +84,10 @@ export const metadata: Metadata = {
   twitter: {
     card: "summary_large_image",
 
-    title: "Deepana Balmoor | Java Backend Engineer",
+    title: "Deepana Balmoor | Software Engineer | Java Backend | Distributed Systems",
 
     description:
-      "Java Backend Engineer specializing in Distributed Systems and Enterprise Integrations.",
+      "Software Engineer focused on enterprise integrations, telecom platforms, backend systems, and large-scale migration support.",
 
     images: ["/images/portfolio-preview.png"],
   },

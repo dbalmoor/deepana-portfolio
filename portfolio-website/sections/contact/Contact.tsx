@@ -15,7 +15,7 @@ const Contact = () => {
           title="Let’s build something impactful."
         />
 
-        <div className="max-w-3xl">
+        <div className="max-w-3xl rounded-3xl border border-white/10 bg-gradient-to-br from-white/[0.03] via-white/[0.02] to-transparent p-8 md:p-10">
           <p className="text-lg leading-relaxed text-neutral-400">
             I’m passionate about backend engineering, distributed systems,
             scalable architectures, and enterprise application development.
@@ -27,7 +27,7 @@ const Contact = () => {
             <a
               href="https://github.com/dbalmoor"
               target="_blank"
-              className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 transition hover:border-purple-500/30 hover:bg-white/[0.06]"
+              className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 transition hover:-translate-y-0.5 hover:border-purple-500/30 hover:bg-white/[0.06]"
             >
               <FaGithub size={22} />
               <span>GitHub</span>
@@ -36,7 +36,7 @@ const Contact = () => {
             <a
               href="https://www.linkedin.com/in/deepanabalmoor/"
               target="_blank"
-              className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 transition hover:border-purple-500/30 hover:bg-white/[0.06]"
+              className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 transition hover:-translate-y-0.5 hover:border-purple-500/30 hover:bg-white/[0.06]"
             >
               <FaLinkedin size={22} />
               <span>LinkedIn</span>
@@ -44,7 +44,7 @@ const Contact = () => {
 
             <a
               href="mailto:dbalmoor@gmail.com"
-              className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 transition hover:border-purple-500/30 hover:bg-white/[0.06]"
+              className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/[0.03] px-5 py-4 transition hover:-translate-y-0.5 hover:border-purple-500/30 hover:bg-white/[0.06]"
             >
               <MdEmail size={22} />
               <span>Email</span>

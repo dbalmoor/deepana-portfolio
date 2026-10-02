@@ -3,17 +3,17 @@ import SectionTitle from "@/components/layout/SectionTitle";
 
 const skills = [
   "Java",
-  "Spring Boot",
-  "Microservices",
-  "Kafka",
-  "JMS",
   "PostgreSQL",
-  "Redis",
-  "React",
-  "Next.js",
-  "Docker",
-  "System Design",
+  "Microservices",
   "REST APIs",
+  "JMS / Messaging Systems",
+  "Docker",
+  "OpenShift",
+  "Distributed Systems",
+  "Kafka",
+  "Spring Boot",
+  "System Design",
+  "Redis",
 ];
 
 const Skills = () => {
