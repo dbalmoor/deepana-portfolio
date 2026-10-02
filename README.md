@@ -166,7 +166,7 @@ http://localhost:3000
 
 ## 🚀 Deployment
 
-This portfolio is deployed using Vercel.
+This portfolio is deployed using Vercel app.
 
 ---
 
