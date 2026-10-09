@@ -47,10 +47,29 @@ const Projects = () => {
                       className="h-auto w-full rounded-xl"
                     />
                     <p className="px-2 pb-2 pt-3 text-sm text-neutral-500">
-                      Service architecture and communication flow.
+                      Each service owns its PostgreSQL database and publishes events through
+                      a transactional outbox, with the Saga orchestrator coordinating the workflow.
                     </p>
                   </div>
                 )}
+
+                
+                {featuredProject.workflowImage && (
+                  <div className="mt-8 overflow-hidden rounded-2xl border border-white/10 bg-black/40 p-2 md:p-4">
+                    <Image
+                      src={featuredProject.workflowImage}
+                      alt={`${featuredProject.title} Saga success and compensation workflows`}
+                      width={1800}
+                      height={720}
+                      sizes="(max-width: 768px) 100vw, 1200px"
+                      className="h-auto w-full rounded-xl"
+                    />
+                    <p className="px-2 pb-2 pt-3 text-sm text-neutral-500">
+                      Saga success path and payment-failure compensation flow.
+                    </p>
+                  </div>
+                )}
+
 
                 {/* Problem Statement */}
                 {featuredProject.problem && (
@@ -204,9 +223,8 @@ const Projects = () => {
                     </h4>
 
                     <p className="mt-2 text-sm leading-7 text-neutral-400">
-                      This is an evolving engineering project. These capabilities
-                      remain outside the current implementation or still require
-                      verification.
+                      The current implementation has a defined scope. The following capabilities
+                      remain planned or are not yet implemented.
                     </p>
 
                     <ul className="mt-4 space-y-3">

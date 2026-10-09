@@ -44,48 +44,57 @@ const Hero = () => {
             </a>
           </div>
 
+          
           <div className="grid gap-4 pt-10 sm:grid-cols-2 xl:grid-cols-4">
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent p-5 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30">
-              <p className="mb-3 text-2xl">⚙️</p>
-              <h3 className="font-semibold leading-tight">
-                Backend Development
+            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-transparent p-5 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30">
+              <p className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+                55M
+              </p>
+              <h3 className="mt-3 font-semibold text-neutral-200">
+                Subscribers Migrated
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-400">
-                Java, Spring Boot, REST APIs, and service-layer design.
+                Migration scope across five production go-live batches.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent p-5 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30">
-              <p className="mb-3 text-2xl">📨</p>
-              <h3 className="font-semibold leading-tight">
-                Event-Driven Systems
+            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-transparent p-5 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30">
+              <p className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+                98%
+              </p>
+              <h3 className="mt-3 font-semibold text-neutral-200">
+                Revenue-Safe Switches
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-400">
-                Kafka, JMS/EMS, asynchronous processing, and retries.
+                Traffic switches completed without revenue loss.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent p-5 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30">
-              <p className="mb-3 text-2xl">🛡️</p>
-              <h3 className="font-semibold leading-tight">
-                Distributed Systems
+            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-transparent p-5 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30">
+              <p className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+                40%
+              </p>
+              <h3 className="mt-3 font-semibold text-neutral-200">
+                Lower CPU Usage
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-400">
-                Saga orchestration, idempotency, and failure recovery.
+                Fewer CPU cores required after JVM tuning in performance testing.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.03] to-transparent p-5 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30">
-              <p className="mb-3 text-2xl">🚀</p>
-              <h3 className="font-semibold leading-tight">
-                Production Engineering
+            <div className="rounded-2xl border border-white/10 bg-gradient-to-br from-white/[0.04] to-transparent p-5 transition-all duration-300 hover:-translate-y-1 hover:border-purple-500/30">
+              <p className="text-3xl font-bold tracking-tight text-white md:text-4xl">
+                30 Days
+              </p>
+              <h3 className="mt-3 font-semibold text-neutral-200">
+                Hypercare
               </h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-400">
-                OpenShift deployments, performance troubleshooting, and
-                observability with Elastic and Grafana.
+                Post-go-live support completed in half the planned duration.
               </p>
             </div>
           </div>
+
         </FadeIn>
       </Container>
     </section>

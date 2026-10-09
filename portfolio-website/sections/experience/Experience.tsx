@@ -45,6 +45,11 @@ const Experience = () => {
                 </p>
               </div>
 
+              <p className="mt-4 text-sm leading-6 text-neutral-400">
+                DMP Consolidation — subscriber migration, production go-lives,
+                traffic switching, and post-deployment hypercare.
+              </p>
+
               <p className="text-sm text-neutral-500">
                 {techMahindraExperience.duration}
               </p>
@@ -57,20 +62,15 @@ const Experience = () => {
               </p>
 
               <ul className="space-y-4">
-                {techMahindraExperience.description
-                  .filter(
-                    (point) =>
-                      !point.toLowerCase().includes("onsite migration")
-                  )
-                  .map((point) => (
-                    <li
-                      key={point}
-                      className="flex items-start gap-3 leading-7 text-neutral-300"
-                    >
-                      <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-purple-400" />
-                      <span>{point}</span>
-                    </li>
-                  ))}
+                {techMahindraExperience.description.map((point) => (
+                  <li
+                    key={point}
+                    className="flex items-start gap-3 leading-7 text-neutral-300"
+                  >
+                    <span className="mt-2 h-2 w-2 shrink-0 rounded-full bg-purple-400" />
+                    <span>{point}</span>
+                  </li>
+                ))}
               </ul>
             </div>
 
@@ -88,7 +88,7 @@ const Experience = () => {
                 <div className="mt-2 flex flex-wrap items-center gap-2 text-sm text-neutral-400">
                   <span>{onsiteExperience.company}</span>
                   <span aria-hidden="true">·</span>
-                  <span>Jakarta, Indonesia</span>
+                  <span>{onsiteExperience.location}</span>
                 </div>
 
                 <p className="mt-3 text-sm font-medium text-purple-300">

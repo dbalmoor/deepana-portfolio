@@ -1,9 +1,11 @@
+
 type Project = {
   featured: boolean;
   title: string;
   description: string;
   problem?: string;
   image?: string;
+  workflowImage?: string;
   architecture?: string[];
   technologies: string[];
   engineeringChallenges?: string[];
@@ -20,120 +22,103 @@ type Project = {
 export const projects: Project[] = [
   {
     featured: true,
-
     title: "Distributed Order Management System",
 
-    image: "/projects/distributed-order-system.png",
-
     description:
-      "An event-driven order processing platform built with four Spring Boot services: Order, Inventory, Payment, and Saga Orchestrator. Services own their PostgreSQL databases and communicate asynchronously through Apache Kafka, with Saga orchestration coordinating the workflow.",
+      "An event-driven order processing platform built with Java 17, Spring Boot, and Apache Kafka. Order, Inventory, Payment, and Saga Orchestrator services own separate PostgreSQL databases, while a gateway routes client requests. A persisted Saga coordinates the workflow, and transactional outboxes and idempotent consumers support reliable asynchronous processing.",
 
     problem:
-      "Order processing spans multiple services, each with its own database. A service can fail midway through a workflow, and Kafka messages may be duplicated or arrive late. The challenge is to preserve business consistency and recover from partial failures without distributed database transactions.",
+      "Order processing spans independently managed services and databases. A service can fail midway through a workflow, and messages can be duplicated, delayed, or arrive out of order. The system must recover from partial failures without distributed database transactions.",
+
+    image: "/projects/distributed-order-system-architecture.png",
+    workflowImage: "/projects/distributed-order-system-saga-flows.png",
 
     architecture: [
-      "Order Service — manages order state",
-      "Inventory Service — coordinates stock reservation and release",
-      "Payment Service — simulates payment processing",
-      "Saga Orchestrator — coordinates workflow steps and compensation",
-      "Apache Kafka — transports commands, events, and asynchronous messages",
-      "Transactional Outbox — coordinates database changes with outgoing events",
-      "Retry and Dead-Letter Handling — isolates messages that repeatedly fail",
-      "Correlation IDs and MDC — follow requests across service logs",
+      "Gateway Service — routes client requests to backend services",
+      "Order Service — owns order state and confirm/cancel commands",
+      "Inventory Service — reserves and releases stock",
+      "Payment Service — simulates charges and refunds with idempotency",
+      "Saga Orchestrator — persists workflow state and coordinates compensation",
+      "Transactional Outbox — stores outgoing messages in the local transaction",
+      "Kafka — transports commands, events, retry topics, and dead-letter topics",
+      "Database Ownership — independent PostgreSQL databases with Flyway migrations",
+      "Saga Watchdog — monitors step deadlines and retries stalled workflows",
+      "Operator APIs — retry workflows or force-resolve eligible sagas",
     ],
 
     technologies: [
       "Java 17",
-      "Spring Boot 3",
+      "Spring Boot 3.2.5",
+      "Spring Kafka",
       "Spring Data JPA",
-      "Apache Kafka",
+      "Apache Kafka (KRaft)",
       "PostgreSQL",
       "Flyway",
+      "Maven",
       "Testcontainers",
       "Docker Compose",
       "Saga Pattern",
     ],
 
     engineeringChallenges: [
-      "Saga orchestration coordinates multi-service workflows and compensation without relying on a distributed database transaction.",
-      "The transactional outbox pattern is designed to prevent a database update and its corresponding outgoing event from becoming inconsistent.",
-      "Idempotent event handling helps protect business state when messages are delivered more than once.",
-      "Late and out-of-order inventory events require safeguards so a delayed reservation cannot undo an earlier release.",
-      "Retry and dead-letter handling provide a path for isolating failed messages and investigating messages that cannot be processed.",
-      "Correlation IDs and MDC make it easier to connect log entries across asynchronous service calls.",
+      "Transactional outbox: commits local state changes and outgoing messages in one database transaction. A lease-based poller claims rows using FOR UPDATE SKIP LOCKED and publishes them to Kafka.",
+      "Idempotent consumers: processed-message records, payment idempotency keys, and inventory release markers protect against duplicate and late events.",
+      "Saga recovery: per-step deadlines and retry policies recover stalled workflows; exhausted retries move the saga to NEEDS_ATTENTION.",
+      "Payment pivot: failures before payment success can trigger compensation. After payment success, the workflow retries order confirmation rather than reversing a successful payment.",
+      "Compensation ordering: payment failure releases inventory, and order cancellation follows the required compensation acknowledgement.",
+      "Dead-letter recovery: retry topics and dead-letter topics isolate failed messages; admin endpoints support replay after a fix.",
+      "Observability: correlation IDs and MDC connect log entries across asynchronous service interactions.",
     ],
 
     designDecisions: [
       {
         title: "Orchestration over choreography",
         description:
-          "A central orchestrator owns workflow progression, timeouts, and compensation order. This improves visibility into the workflow but introduces another component to maintain.",
+          "A persisted orchestrator owns workflow progression, timeouts, and compensation order. This makes recovery explicit while adding a central component to maintain.",
       },
       {
         title: "Outbox over dual writes",
         description:
-          "Persisting business state and an outgoing event in the same database transaction avoids relying on two independent writes to PostgreSQL and Kafka.",
+          "Business state and outgoing messages are persisted in the same local database transaction. A poller handles delivery to Kafka with at-least-once semantics.",
       },
       {
         title: "At-least-once delivery with idempotency",
         description:
-          "The design tolerates duplicate message delivery rather than assuming that every event is processed exactly once.",
+          "Consumers tolerate duplicate delivery instead of relying on an exactly-once processing guarantee.",
       },
       {
-        title: "Concurrency control",
+        title: "Payment success as the pivot",
         description:
-          "Inventory locking and version-based concurrency control help protect state when multiple operations affect the same order or stock.",
+          "Before payment success, failures can trigger compensation. After success, the saga moves forward by retrying order confirmation.",
+      },
+      {
+        title: "Concurrency and recovery controls",
+        description:
+          "Database locking, saga deadlines, retry budgets, and operator recovery help control concurrent updates and stalled workflows.",
       },
     ],
 
     limitations: [
-      "Payment processing is simulated rather than connected to a real payment provider.",
-      "Gateway and administrative API authentication are not implemented yet.",
-      "OpenTelemetry-based distributed tracing and production metrics are not implemented yet; correlation IDs and MDC are used for log correlation.",
-      "A client-facing Idempotency-Key API contract and atomic conditional stock decrement remain future work.",
-      "Database migration validation and the full integration test suite still need to be verified against a running PostgreSQL and Kafka environment.",
+      "Payment is a deterministic simulation, not a real payment-provider integration.",
+      "Authentication and authorization are not implemented; gateway and administrative endpoints are currently unauthenticated.",
+      "OpenTelemetry tracing, Prometheus metrics, and Grafana dashboards are not implemented; correlation IDs and MDC provide log correlation.",
+      "POST /orders does not yet support a client-facing Idempotency-Key contract.",
+      "Inventory reservation uses row locking rather than an atomic conditional decrement.",
+      "Dedicated automated coverage is still missing for orchestrator crash recovery, duplicate inventory reservation, and end-to-end dead-letter routing/replay.",
+      "Kafka topic configuration uses a single replica, suitable for local development rather than production resilience.",
     ],
 
     github:
       "https://github.com/dbalmoor/distributed-order-system",
 
-    live: "#",
-
     highlights: [
-      "Coordinates order, inventory, and payment workflows using the Saga pattern.",
-      "Uses Kafka for asynchronous communication between services.",
-      "Designs compensation paths for recovering from partial workflow failures.",
-      "Uses idempotency safeguards to handle duplicate events.",
-      "Includes retry and dead-letter handling for failed messages.",
-      "Uses correlation IDs and MDC to connect logs across services.",
-    ],
-  },
-
-  {
-    featured: false,
-
-    title: "Workout Tracking Application",
-
-    description:
-      "A full-stack MERN application for workout tracking, combining REST APIs, authentication workflows, and a responsive React frontend.",
-
-    technologies: [
-      "MongoDB",
-      "Express.js",
-      "React",
-      "Node.js",
-      "REST APIs",
-    ],
-
-    github: "#",
-
-    live: "#",
-
-    highlights: [
-      "Built RESTful backend APIs for application workflows.",
-      "Implemented authentication workflows.",
-      "Integrated frontend components with backend APIs.",
-      "Developed a responsive interface using React.",
+      "Coordinates order, inventory, and payment workflows using Saga orchestration.",
+      "Uses Kafka for asynchronous commands and events.",
+      "Implements compensation paths for partial workflow failures.",
+      "Uses idempotency safeguards for duplicate and late messages.",
+      "Supports watchdog recovery and operator intervention.",
+      "Includes transactional outbox publishing and dead-letter replay endpoints.",
+      "Passes the current Maven verification suite with Testcontainers-backed integration tests.",
     ],
   },
 ];
