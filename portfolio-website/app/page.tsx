@@ -5,7 +5,6 @@ import Hero from "@/sections/hero/Hero";
 import About from "@/sections/about/About";
 import Skills from "@/sections/skills/Skills";
 import Experience from "@/sections/experience/Experience";
-import Migration from "@/sections/migration/Migration";
 import Projects from "@/sections/projects/Projects";
 import Contact from "@/sections/contact/Contact";
 
@@ -16,11 +15,9 @@ export default function Home() {
 
       <Hero />
       <About />
-      <Skills />
-      <Experience />
-      <Migration />
       <Projects />
-
+      <Experience />
+      <Skills />
       <Contact />
 
       <Footer />
