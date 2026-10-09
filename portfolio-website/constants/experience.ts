@@ -36,8 +36,8 @@ export const experiences = [
   {
     company: "Indosat Ooredoo Hutchison (IOH)",
     role: "Onsite Migration & Go-Live Support",
-    duration: "Jakarta, Indonesia",
-    location: "Client Site Engagement",
+    duration: "Apr–May 2026 · Aug–Sep 2026",
+    location: "Jakarta, Indonesia",
     technologies: [
       "Enterprise Systems",
       "Production Rollout",
@@ -52,7 +52,7 @@ export const experiences = [
       "Supported migration and go-live activities for the DMP Consolidation platform at IOH.",
       "Worked closely with the engineering and business teams during production readiness validation.",
       "Contributed to Hypercare support and go-live monitoring during critical transition periods.",
-      "Ensured smooth operations across migration waves covering 40+ million subscribers.",
+      "Ensured smooth operations across migration waves covering 55+ million subscribers.",
       "Collaborated across teams to resolve production issues and validate business-critical flows.",
       "Strengthened offshore-onsite coordination through live client engagement in Jakarta.",
     ],

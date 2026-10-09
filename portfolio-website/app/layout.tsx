@@ -6,43 +6,43 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
+const siteUrl = "https://deepana-portfolio.vercel.app";
+
+const siteTitle = "Deepana Balmoor | Java Backend Engineer";
+
+const siteDescription =
+  "Java Backend Engineer with experience in Java, Spring Boot, REST APIs, Kafka, JMS, microservices, and production systems. Explore backend projects and engineering experience.";
+
+const previewImage = "/images/portfolio-preview.png";
+
 export const metadata: Metadata = {
-  metadataBase: new URL("https://deepana-portfolio.vercel.app"),
+  metadataBase: new URL(siteUrl),
 
   title: {
-    default: "Deepana Balmoor | Software Engineer | Java Backend | Distributed Systems",
+    default: siteTitle,
     template: "%s | Deepana Balmoor",
   },
 
-  description:
-    "Software Engineer specializing in Java backend systems, distributed systems, enterprise integrations, OpenShift deployments, migration support, and telecom platform engineering.",
+  description: siteDescription,
 
   keywords: [
     "Deepana Balmoor",
-    "Software Engineer",
     "Java Backend Engineer",
-    "Distributed Systems",
+    "Java Developer",
     "Spring Boot",
-    "Microservices",
+    "Backend Engineer",
+    "REST APIs",
     "Apache Kafka",
+    "JMS",
+    "Microservices",
+    "PostgreSQL",
+    "Distributed Systems",
     "Docker",
     "OpenShift",
-    "PostgreSQL",
-    "REST APIs",
-    "Backend Developer",
-    "System Design",
-    "Enterprise Integration",
-    "IOH",
-    "Telecom",
-    "Migration Support",
+    "TIBCO BWCE",
   ],
 
-  authors: [
-    {
-      name: "Deepana Balmoor",
-    },
-  ],
-
+  authors: [{ name: "Deepana Balmoor" }],
   creator: "Deepana Balmoor",
 
   robots: {
@@ -51,7 +51,7 @@ export const metadata: Metadata = {
   },
 
   alternates: {
-    canonical: "https://deepana-portfolio.vercel.app",
+    canonical: siteUrl,
   },
 
   icons: {
@@ -62,34 +62,25 @@ export const metadata: Metadata = {
 
   openGraph: {
     type: "website",
-    url: "https://deepana-portfolio.vercel.app",
-
-    title: "Deepana Balmoor | Software Engineer | Java Backend | Distributed Systems",
-
-    description:
-      "Software Engineer with enterprise telecom systems experience, backend integrations, migration support, distributed messaging, and OpenShift-based deployments.",
-
-    siteName: "Deepana Portfolio",
-
+    url: siteUrl,
+    title: siteTitle,
+    description: siteDescription,
+    siteName: "Deepana Balmoor Portfolio",
     images: [
       {
-        url: "/images/portfolio-preview.png",
+        url: previewImage,
         width: 1200,
         height: 630,
-        alt: "Deepana Balmoor Portfolio",
+        alt: "Deepana Balmoor — Java Backend Engineer Portfolio",
       },
-    ]
+    ],
   },
 
   twitter: {
     card: "summary_large_image",
-
-    title: "Deepana Balmoor | Software Engineer | Java Backend | Distributed Systems",
-
-    description:
-      "Software Engineer focused on enterprise integrations, telecom platforms, backend systems, and large-scale migration support.",
-
-    images: ["/images/portfolio-preview.png"],
+    title: siteTitle,
+    description: siteDescription,
+    images: [previewImage],
   },
 };
 
@@ -100,9 +91,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        {children}
-      </body>
+      <body className={inter.className}>{children}</body>
     </html>
   );
 }
