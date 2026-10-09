@@ -1,4 +1,23 @@
-export const projects = [
+type Project = {
+  featured: boolean;
+  title: string;
+  description: string;
+  problem?: string;
+  image?: string;
+  architecture?: string[];
+  technologies: string[];
+  engineeringChallenges?: string[];
+  highlights: string[];
+  designDecisions?: {
+    title: string;
+    description: string;
+  }[];
+  limitations?: string[];
+  github?: string;
+  live?: string;
+};
+
+export const projects: Project[] = [
   {
     featured: true,
 
@@ -6,53 +25,87 @@ export const projects = [
 
     image: "/projects/distributed-order-system.png",
 
-    problem:
-      "Built a distributed e-commerce order processing platform that demonstrates reliable transaction management across multiple microservices using Saga Orchestration and Apache Kafka.",
-
     description:
-      "Developed an event-driven distributed system using Spring Boot microservices, Apache Kafka, PostgreSQL, and Docker. The platform coordinates Order, Inventory, Payment, and Saga Orchestrator services while maintaining consistency through compensation transactions and asynchronous communication.",
+      "An event-driven order processing platform built with four Spring Boot services: Order, Inventory, Payment, and Saga Orchestrator. Services own their PostgreSQL databases and communicate asynchronously through Apache Kafka, with Saga orchestration coordinating the workflow.",
+
+    problem:
+      "Order processing spans multiple services, each with its own database. A service can fail midway through a workflow, and Kafka messages may be duplicated or arrive late. The challenge is to preserve business consistency and recover from partial failures without distributed database transactions.",
 
     architecture: [
-      "Order Service",
-      "Inventory Service",
-      "Payment Service",
-      "Saga Orchestrator",
-      "Kafka Commands & Events",
-      "Compensation Transactions",
-      "DLQ Processing",
-      "Distributed Tracing",
+      "Order Service — manages order state",
+      "Inventory Service — coordinates stock reservation and release",
+      "Payment Service — simulates payment processing",
+      "Saga Orchestrator — coordinates workflow steps and compensation",
+      "Apache Kafka — transports commands, events, and asynchronous messages",
+      "Transactional Outbox — coordinates database changes with outgoing events",
+      "Retry and Dead-Letter Handling — isolates messages that repeatedly fail",
+      "Correlation IDs and MDC — follow requests across service logs",
     ],
 
     technologies: [
-      "Java",
-      "Spring Boot",
-      "Microservices",
+      "Java 17",
+      "Spring Boot 3",
+      "Spring Data JPA",
       "Apache Kafka",
       "PostgreSQL",
-      "Docker",
+      "Flyway",
+      "Testcontainers",
+      "Docker Compose",
       "Saga Pattern",
-      "Distributed Systems",
-    ],
-    engineeringChallenges: [
-      "Ensured transaction consistency across multiple microservices without relying on distributed database transactions.",
-      "Designed compensation workflows to recover safely from payment failures and maintain system consistency.",
-      "Prevented duplicate event processing using idempotent consumer patterns.",
-      "Implemented Dead Letter Queue (DLQ) handling and retry mechanisms for failed Kafka messages.",
-      "Added correlation IDs and distributed tracing to improve observability across asynchronous workflows.",
-      "Coordinated service interactions through Saga Orchestration while maintaining loose coupling between services."
     ],
 
-    github: "https://github.com/dbalmoor/distributed-order-system",
+    engineeringChallenges: [
+      "Saga orchestration coordinates multi-service workflows and compensation without relying on a distributed database transaction.",
+      "The transactional outbox pattern is designed to prevent a database update and its corresponding outgoing event from becoming inconsistent.",
+      "Idempotent event handling helps protect business state when messages are delivered more than once.",
+      "Late and out-of-order inventory events require safeguards so a delayed reservation cannot undo an earlier release.",
+      "Retry and dead-letter handling provide a path for isolating failed messages and investigating messages that cannot be processed.",
+      "Correlation IDs and MDC make it easier to connect log entries across asynchronous service calls.",
+    ],
+
+    designDecisions: [
+      {
+        title: "Orchestration over choreography",
+        description:
+          "A central orchestrator owns workflow progression, timeouts, and compensation order. This improves visibility into the workflow but introduces another component to maintain.",
+      },
+      {
+        title: "Outbox over dual writes",
+        description:
+          "Persisting business state and an outgoing event in the same database transaction avoids relying on two independent writes to PostgreSQL and Kafka.",
+      },
+      {
+        title: "At-least-once delivery with idempotency",
+        description:
+          "The design tolerates duplicate message delivery rather than assuming that every event is processed exactly once.",
+      },
+      {
+        title: "Concurrency control",
+        description:
+          "Inventory locking and version-based concurrency control help protect state when multiple operations affect the same order or stock.",
+      },
+    ],
+
+    limitations: [
+      "Payment processing is simulated rather than connected to a real payment provider.",
+      "Gateway and administrative API authentication are not implemented yet.",
+      "OpenTelemetry-based distributed tracing and production metrics are not implemented yet; correlation IDs and MDC are used for log correlation.",
+      "A client-facing Idempotency-Key API contract and atomic conditional stock decrement remain future work.",
+      "Database migration validation and the full integration test suite still need to be verified against a running PostgreSQL and Kafka environment.",
+    ],
+
+    github:
+      "https://github.com/dbalmoor/distributed-order-system",
 
     live: "#",
 
     highlights: [
-      "Implemented Saga Orchestration for distributed transactions",
-      "Built event-driven communication using Apache Kafka",
-      "Added compensation workflows for failure recovery",
-      "Implemented Dead Letter Queue (DLQ) processing",
-      "Designed idempotent consumers to prevent duplicate processing",
-      "Added distributed tracing using MDC and correlation IDs",
+      "Coordinates order, inventory, and payment workflows using the Saga pattern.",
+      "Uses Kafka for asynchronous communication between services.",
+      "Designs compensation paths for recovering from partial workflow failures.",
+      "Uses idempotency safeguards to handle duplicate events.",
+      "Includes retry and dead-letter handling for failed messages.",
+      "Uses correlation IDs and MDC to connect logs across services.",
     ],
   },
 
@@ -62,7 +115,7 @@ export const projects = [
     title: "Workout Tracking Application",
 
     description:
-      "Full-stack MERN application for workout tracking with REST APIs, authentication, and responsive frontend architecture.",
+      "A full-stack MERN application for workout tracking, combining REST APIs, authentication workflows, and a responsive React frontend.",
 
     technologies: [
       "MongoDB",
@@ -77,10 +130,10 @@ export const projects = [
     live: "#",
 
     highlights: [
-      "Built complete RESTful backend APIs",
-      "Implemented authentication workflows",
-      "Integrated frontend and backend architecture",
-      "Responsive UI with React",
+      "Built RESTful backend APIs for application workflows.",
+      "Implemented authentication workflows.",
+      "Integrated frontend components with backend APIs.",
+      "Developed a responsive interface using React.",
     ],
   },
 ];
