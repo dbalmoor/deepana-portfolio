@@ -38,7 +38,7 @@ export const experiences = [
   {
     company: "Indosat Ooredoo Hutchison (IOH)",
     role: "Onsite Migration & Go-Live Support",
-    duration: "12 Apr–10 May 2026 · 27 Aug–30 Sep 2026",
+    duration: "Apr–May 2026 · Aug–Sep 2026",
     location: "Jakarta, Indonesia",
 
     technologies: [

@@ -17,6 +17,8 @@ type Project = {
   limitations?: string[];
   github?: string;
   live?: string;
+  kafkaJmsPost?: string;
+  designDoc?: string;
 };
 
 export const projects: Project[] = [
@@ -112,13 +114,11 @@ export const projects: Project[] = [
       "https://github.com/dbalmoor/distributed-order-system",
 
     highlights: [
-      "Coordinates order, inventory, and payment workflows using Saga orchestration.",
-      "Uses Kafka for asynchronous commands and events.",
-      "Implements compensation paths for partial workflow failures.",
-      "Uses idempotency safeguards for duplicate and late messages.",
-      "Supports watchdog recovery and operator intervention.",
-      "Includes transactional outbox publishing and dead-letter replay endpoints.",
-      "Passes the current Maven verification suite with Testcontainers-backed integration tests.",
+      "Saga orchestration coordinates order, inventory, and payment workflows, including compensation for failures.",
+      "Transactional outbox, idempotent event handling, retries, and dead-letter topics improve reliability during asynchronous processing.",
+      "Per-service PostgreSQL databases, Flyway migrations, and Testcontainers integration tests support database isolation and verification.",
     ],
+    kafkaJmsPost: "https://www.linkedin.com/feed/update/urn:li:activity:7513999261722624000/",
+    designDoc: "https://github.com/dbalmoor/distributed-order-system/blob/main/design.md",
   },
 ];

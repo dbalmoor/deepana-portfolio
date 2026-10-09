@@ -1,3 +1,4 @@
+
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
@@ -11,7 +12,7 @@ const siteUrl = "https://deepana-portfolio.vercel.app";
 const siteTitle = "Deepana Balmoor | Java Backend Engineer";
 
 const siteDescription =
-  "Java Backend Engineer with experience in Java, Spring Boot, REST APIs, Kafka, JMS, microservices, and production systems. Explore backend projects and engineering experience.";
+  "Java backend engineer with experience in enterprise integrations, REST APIs, Kafka, JMS, and production systems. Explore a Spring Boot distributed order management project featuring Saga orchestration, transactional outbox, idempotency, and failure recovery.";
 
 const previewImage = "/images/portfolio-preview.png";
 
@@ -33,10 +34,14 @@ export const metadata: Metadata = {
     "Backend Engineer",
     "REST APIs",
     "Apache Kafka",
+    "Spring Kafka",
     "JMS",
     "Microservices",
     "PostgreSQL",
     "Distributed Systems",
+    "Saga Pattern",
+    "Transactional Outbox",
+    "Testcontainers",
     "Docker",
     "OpenShift",
     "TIBCO BWCE",
@@ -71,7 +76,7 @@ export const metadata: Metadata = {
         url: previewImage,
         width: 1200,
         height: 630,
-        alt: "Deepana Balmoor — Java Backend Engineer Portfolio",
+        alt: "Deepana Balmoor Java Backend Engineer portfolio",
       },
     ],
   },

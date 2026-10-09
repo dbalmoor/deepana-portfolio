@@ -1,28 +1,29 @@
+
 import Container from "@/components/layout/Container";
 import SectionTitle from "@/components/layout/SectionTitle";
 
 const skillGroups = [
   {
-    title: "Languages & Frameworks",
-    description: "Backend application development",
+    title: "Languages & Backend Frameworks",
+    description: "Application development and persistence",
     skills: [
       "Java",
       "Spring Boot",
       "Spring Data JPA",
+      "Spring Kafka",
       "Maven",
-      "JUnit",
-      "Mockito",
+      "SQL",
     ],
   },
   {
-    title: "Messaging & Data",
-    description: "Asynchronous processing and persistence",
+    title: "Messaging & Databases",
+    description: "Asynchronous communication and data management",
     skills: [
       "Apache Kafka",
       "JMS / EMS",
       "PostgreSQL",
       "Oracle",
-      "SQL",
+      "Flyway",
     ],
   },
   {
@@ -32,8 +33,18 @@ const skillGroups = [
       "REST API Design",
       "Microservices",
       "Saga Pattern",
+      "Transactional Outbox",
       "Idempotency",
       "Event-Driven Architecture",
+    ],
+  },
+  {
+    title: "Testing & Quality",
+    description: "Automated testing and integration verification",
+    skills: [
+      "JUnit",
+      "Mockito",
+      "Testcontainers",
     ],
   },
   {
@@ -41,6 +52,7 @@ const skillGroups = [
     description: "Deployment and production troubleshooting",
     skills: [
       "Docker",
+      "Docker Compose",
       "OpenShift",
       "Git",
       "Elastic",
@@ -55,6 +67,7 @@ const skillGroups = [
       "TIBCO Flogo",
       "Mashery",
       "SOAP APIs",
+      "JMS / EMS",
     ],
   },
 ];
